@@ -1,8 +1,8 @@
 System Monitoring Applicaton by SilverSoftware
 
-GitHub: github.com/SilverPc98/System_Monitor
+GitHub: https://github.com/SilverPc98/System_Monitor
 Dependencies: 	OSHI(Operating System & Hardware Information) 
-				GitHub: github.com/oshi/oshi
+				GitHub: https://github.com/oshi/oshi
 				
 Support system: Windows • Mac OS X • Linux
 
