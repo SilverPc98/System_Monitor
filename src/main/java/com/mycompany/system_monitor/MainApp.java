@@ -44,7 +44,7 @@ public class MainApp extends Application {
         scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("System Monitoring");
         stage.setScene(scene);
         stage.show();
     }

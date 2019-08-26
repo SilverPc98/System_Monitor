@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="380.0" style="-fx-background-color: rgba(0,0,0,0);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.system_monitor.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="380.0" style="-fx-background-color: rgba(0,0,0,0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.system_monitor.FXMLController">
    <children>
       <AnchorPane prefHeight="73.0" prefWidth="380.0" style="-fx-background-color: #3d4956;">
          <children>
@@ -38,13 +39,79 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="h_system" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;" visible="false">
+      <AnchorPane fx:id="h_system" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;">
          <children>
             <ImageView fitHeight="13.0" fitWidth="14.0" layoutX="43.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/up.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="pic_logo" fitHeight="60.0" fitWidth="60.0" layoutX="160.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user_male.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lbl_user" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="77.0" prefHeight="17.0" prefWidth="187.0" text="username" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="111.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
+               <children>
+                  <Label text="Operációs rendszer:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Rendszer típusa:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Számítógépnév:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Alaplap gyártó:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Firmware:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Memória(RAM) mérete:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="IP cím:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="MAC cím:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="111.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
+               <children>
+                  <Label fx:id="lbl_os" text="os" textFill="WHITE" />
+                  <Label fx:id="lbl_arch" text="arch" textFill="WHITE" />
+                  <Label fx:id="lbl_cpname" text="cp_name" textFill="WHITE" />
+                  <Label fx:id="lbl_baseb" text="baseboard" textFill="WHITE" />
+                  <Label fx:id="lbl_firm" text="firm" textFill="WHITE" />
+                  <Label fx:id="lbl_memory" text="memory" textFill="WHITE" />
+                  <Label fx:id="lbl_ipaddr" text="ip_addr" textFill="WHITE" />
+                  <Label fx:id="lbl_macaddr" text="mac_addr" textFill="WHITE" />
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="h_cpu" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;" visible="false">
