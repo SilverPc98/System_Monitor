@@ -39,7 +39,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="h_system" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;">
+      <AnchorPane fx:id="h_system" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;" visible="false">
          <children>
             <ImageView fitHeight="13.0" fitWidth="14.0" layoutX="43.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -56,7 +56,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="111.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
+            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="100.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
                <children>
                   <Label text="Operációs rendszer:" textFill="WHITE">
                      <font>
@@ -74,6 +74,11 @@
                      </font>
                   </Label>
                   <Label text="Alaplap gyártó:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Alaplap típusa:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -100,12 +105,13 @@
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="111.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
+            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="100.0" prefHeight="273.0" prefWidth="187.0" spacing="15.0">
                <children>
                   <Label fx:id="lbl_os" text="os" textFill="WHITE" />
                   <Label fx:id="lbl_arch" text="arch" textFill="WHITE" />
                   <Label fx:id="lbl_cpname" text="cp_name" textFill="WHITE" />
                   <Label fx:id="lbl_baseb" text="baseboard" textFill="WHITE" />
+                  <Label fx:id="lbl_basebtype" text="baseboard_type" textFill="WHITE" />
                   <Label fx:id="lbl_firm" text="firm" textFill="WHITE" />
                   <Label fx:id="lbl_memory" text="memory" textFill="WHITE" />
                   <Label fx:id="lbl_ipaddr" text="ip_addr" textFill="WHITE" />

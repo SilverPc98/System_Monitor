@@ -38,7 +38,7 @@ public class FXMLController implements Initializable {
     @FXML
     private AnchorPane h_system, h_cpu, h_disk;
     @FXML
-    private Label lbl_user, lbl_os, lbl_arch, lbl_cpname, lbl_baseb, lbl_firm, lbl_memory, lbl_ipaddr, lbl_macaddr;
+    private Label lbl_user, lbl_os, lbl_arch, lbl_cpname, lbl_baseb, lbl_firm, lbl_memory, lbl_ipaddr, lbl_macaddr, lbl_basebtype;
     
     
     @FXML
@@ -114,16 +114,27 @@ public class FXMLController implements Initializable {
    
         lbl_baseb.setText(bb.getManufacturer());//Baseboard type :cs.getModel()
         lbl_firm.setText(fw.getManufacturer());
+        lbl_basebtype.setText(cs.getModel());
         double mem = (((ram.getTotal()/1024.0)/1024.0)/1024.0);
         String memm = "" + mem;
-        lbl_memory.setText("" + memm.substring(0, 5) + " GB");
+        
+        if (memm.length() < 4){
+            lbl_memory.setText("" + memm.substring(0, 3) + " GB"); 
+        }else{
+            if(memm.length() > 5){
+                lbl_memory.setText("" + memm.substring(0, 5) + " GB");
+            }
+        }
+        
+        
+        //lbl_memory.setText("" + memm.substring(0, 5) + " GB");
         
         
         
         NetworkInterface network = null;
         try {
             network = NetworkInterface.getByInetAddress(ip);
-        } catch (SocketException ex) {
+        } catch (SocketException ex) { 
             Logger.getLogger(Scene.class.getName()).log(Level.SEVERE, null, ex);
         }
         byte[] mac = null;
