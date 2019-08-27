@@ -120,13 +120,85 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="h_cpu" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;" visible="false">
+      <AnchorPane fx:id="h_cpu" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;">
          <children>
             <ImageView fitHeight="13.0" fitWidth="14.0" layoutX="114.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/up.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="pic_cpu" fitHeight="60.0" fitWidth="60.0" layoutX="160.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user_male.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lbl_cpuname" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="77.0" prefHeight="17.0" prefWidth="325.0" text="cpu_name" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="100.0" prefHeight="273.0" prefWidth="187.0" spacing="15.0">
+               <children>
+                  <Label fx:id="lbl_family" text="family" textFill="WHITE" />
+                  <Label fx:id="lbl_speed" text="speed" textFill="WHITE" />
+                  <Label fx:id="lbl_cores" text="cpu_cores" textFill="WHITE" />
+                  <Label fx:id="lbl_threads" text="threads" textFill="WHITE" />
+                  <Label fx:id="lbl_id" text="cpu_id" textFill="WHITE" />
+                  <Label fx:id="lbl_usage" text="usage" textFill="WHITE" />
+                  <Label fx:id="lbl_memory1" text="memory" textFill="WHITE" />
+                  <Label fx:id="lbl_ipaddr1" text="ip_addr" textFill="WHITE" />
+                  <Label fx:id="lbl_macaddr1" text="mac_addr" textFill="WHITE" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="100.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
+               <children>
+                  <Label text="Processzor család:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Processzor alapsebesség:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Processzor magok:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Processzor szálak:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Processzor ID:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text=":" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Memória(RAM) mérete:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="IP cím:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="MAC cím:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="h_disk" layoutY="84.0" prefHeight="381.0" prefWidth="380.0" style="-fx-background-color: #3d4956;" visible="false">
