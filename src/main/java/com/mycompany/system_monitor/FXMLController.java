@@ -1,28 +1,17 @@
 package com.mycompany.system_monitor;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+
+import com.sun.jna.NativeLong;
+import com.sun.jna.platform.unix.X11.Font;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
-import java.net.URL;
-import java.lang.management.ManagementFactory;
-import java.lang.management.OperatingSystemMXBean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ResourceBundle;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
 import oshi.SystemInfo;
 import oshi.hardware.Baseboard;
 import oshi.hardware.ComputerSystem;
@@ -39,7 +28,6 @@ import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -53,6 +41,8 @@ public class FXMLController implements Initializable {
     Firmware fw = cs.getFirmware();
     GlobalMemory ram = si.getHardware().getMemory();
     CentralProcessor cp = si.getHardware().getProcessor();
+    Sensors sensor = si.getHardware().getSensors();
+    
     
     
     InetAddress ip;
@@ -65,7 +55,7 @@ public class FXMLController implements Initializable {
     private AnchorPane h_system, h_cpu, h_disk;
     @FXML
     private Label lbl_user, lbl_os, lbl_arch, lbl_cpname, lbl_baseb, lbl_firm, lbl_memory, lbl_ipaddr, lbl_macaddr, lbl_basebtype,
-            lbl_cpuname, lbl_family, lbl_speed, lbl_cores, lbl_threads, lbl_id, lbl_usage;
+            lbl_cpuname, lbl_family, lbl_speed, lbl_cores, lbl_threads, lbl_id, lbl_usage, lbl_temp, lbl_voltage, lbl_fanspeed;
     
     
     @FXML
@@ -74,23 +64,28 @@ public class FXMLController implements Initializable {
             h_system.setVisible(true);
             h_cpu.setVisible(false);
             h_disk.setVisible(false);
+            timeline.pause();
         }else{
             if (event.getTarget() == btn_cpu){
                 h_cpu.setVisible(true);
                 h_system.setVisible(false);
                 h_disk.setVisible(false);
+                timeline.play();
             }else{
                 if(event.getTarget() == btn_disk){
                     h_disk.setVisible(true);
                     h_cpu.setVisible(false);
                     h_system.setVisible(false);
+                    timeline.pause();
                 }else{
                     if(event.getTarget() == btn_up){
                     h_disk.setVisible(false);
                     h_cpu.setVisible(false);
                     h_system.setVisible(false);
+                    timeline.pause();
                     }else{
                         if(event.getTarget() == btn_exit){
+                            timeline.pause();
                             System.exit(0);
                         }
                     
@@ -119,39 +114,13 @@ public class FXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        systemcheck();
-        lbl_cpuname.setText(cp.getName());
-        Image intel = new Image("images/intel.png");
-        Image amd = new Image("images/amd.png");
-        if (lbl_cpuname.getText().contains("Intel")){
-            pic_cpu.setImage(intel);
-            pic_cpu.setFitWidth(60);
-            pic_cpu.setFitHeight(60);
-        }else{
-            if(lbl_cpuname.getText().contains("Amd")){
-                pic_cpu.setImage(amd);
-                pic_cpu.setFitWidth(60);
-                pic_cpu.setFitHeight(60);
-            }
-        }
-        lbl_family.setText(cp.getFamily() + ". generáció");
-        double freq = (cp.getVendorFreq()/1000000000.00);
-        lbl_speed.setText("" + freq + " GHz");
-        lbl_cores.setText("" + cp.getPhysicalProcessorCount());
-        lbl_threads.setText("" + cp.getLogicalProcessorCount());
-        lbl_id.setText(cp.getProcessorID());
-        timeline = new Timeline(new KeyFrame(Duration.millis(10),(ActionEvent events) ->             
-            lbl_usage.setText(getCPUUsage().toString())), 0);
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        
-        
-        
+        systemCheck();
+        cpuInfo();
         
         
     }
                 
-    
-    public void systemcheck(){
+    public void systemCheck(){
     lbl_user.setText(System.getProperty("user.name"));
         lbl_os.setText(System.getProperty("os.name"));
         Image windows = new Image("images/windows.png");//this.getClass().getResourceAsStream("../src/main/resources/images/windows.png")
@@ -210,13 +179,12 @@ public class FXMLController implements Initializable {
         try {
             network = NetworkInterface.getByInetAddress(ip);
         } catch (SocketException ex) { 
-            Logger.getLogger(Scene.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         byte[] mac = null;
         try {
             mac = network.getHardwareAddress();
         } catch (SocketException ex) {
-            //Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             lbl_macaddr.setText("Nem található MAC cím");
         }
   
@@ -226,6 +194,39 @@ public class FXMLController implements Initializable {
             sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));     
         }
         lbl_macaddr.setText(sb.toString());
+    }
+    public void cpuInfo(){
+    lbl_cpuname.setText(cp.getName());
+        Image intel = new Image("images/intel.png");
+        Image amd = new Image("images/amd.png");
+        if (lbl_cpuname.getText().contains("Intel")){
+            pic_cpu.setImage(intel);
+            pic_cpu.setFitWidth(60);
+            pic_cpu.setFitHeight(60);
+        }else{
+            if(lbl_cpuname.getText().contains("Amd")){
+                pic_cpu.setImage(amd);
+                pic_cpu.setFitWidth(60);
+                pic_cpu.setFitHeight(60);
+            }
+        }
+        lbl_family.setText(cp.getFamily() + ". generáció");
+        double freq = (cp.getVendorFreq()/1000000000.00);
+        lbl_speed.setText("" + freq + " GHz");
+        lbl_cores.setText("" + cp.getPhysicalProcessorCount());
+        lbl_threads.setText("" + cp.getLogicalProcessorCount());
+        lbl_id.setText(cp.getProcessorID());
+        timeline = new Timeline(new KeyFrame(Duration.millis(500), (ActionEvent event) ->{
+            lbl_usage.setText(getCPUUsage().toString().substring(0, 4) + "%");
+            lbl_temp.setText("" + sensor.getCpuTemperature() + " °C");
+            lbl_voltage.setText("" + sensor.getCpuVoltage() + "V");
+            
+            int[] speeds = sensor.getFanSpeeds();
+        for (int speed : speeds) {
+            lbl_fanspeed.setText("" + speed + " RPM");
+        }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
     }
     public Double getCPUUsage() {
 
@@ -243,4 +244,5 @@ public class FXMLController implements Initializable {
         }
         return value;
     }
+
 }
