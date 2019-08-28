@@ -53,69 +53,96 @@
             </ImageView>
             <Label fx:id="lbl_user" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="77.0" prefHeight="17.0" prefWidth="187.0" text="username" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Arial Bold" size="12.0" />
                </font>
             </Label>
-            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="100.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
+            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="155.0" spacing="15.0">
                <children>
                   <Label text="Operációs rendszer:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Rendszer típusa:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Számítógépnév:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Alaplap gyártó:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Alaplap típusa:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Firmware:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Memória(RAM) mérete:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="IP cím:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="MAC cím:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="100.0" prefHeight="273.0" prefWidth="187.0" spacing="15.0">
+            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="187.0" spacing="15.0">
                <children>
-                  <Label fx:id="lbl_os" text="os" textFill="WHITE" />
-                  <Label fx:id="lbl_arch" text="arch" textFill="WHITE" />
-                  <Label fx:id="lbl_cpname" text="cp_name" textFill="WHITE" />
-                  <Label fx:id="lbl_baseb" text="baseboard" textFill="WHITE" />
-                  <Label fx:id="lbl_basebtype" text="baseboard_type" textFill="WHITE" />
-                  <Label fx:id="lbl_firm" text="firm" textFill="WHITE" />
-                  <Label fx:id="lbl_memory" text="memory" textFill="WHITE" />
-                  <Label fx:id="lbl_ipaddr" text="ip_addr" textFill="WHITE" />
-                  <Label fx:id="lbl_macaddr" text="mac_addr" textFill="WHITE" />
+                  <Label fx:id="lbl_os" text="os" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_arch" text="arch" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_cpname" text="cp_name" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_baseb" text="baseboard" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_basebtype" text="baseboard_type" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_firm" text="firm" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_memory" text="memory" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_ipaddr" text="ip_addr" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_macaddr" text="mac_addr" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
                </children>
             </VBox>
          </children>
@@ -134,70 +161,94 @@
             </ImageView>
             <Label fx:id="lbl_cpuname" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="77.0" prefHeight="17.0" prefWidth="325.0" text="cpu_name" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Arial Bold" size="12.0" />
                </font>
             </Label>
-            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="100.0" prefHeight="273.0" prefWidth="187.0" spacing="15.0">
+            <VBox alignment="CENTER_LEFT" layoutX="191.0" layoutY="100.0" maxHeight="273.0" maxWidth="187.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="187.0" spacing="15.0">
                <children>
                   <Label fx:id="lbl_family" text="family" textFill="WHITE">
                      <font>
-                        <Font name="MT Extra" size="12.0" />
+                        <Font name="Arial" size="12.0" />
                      </font></Label>
-                  <Label fx:id="lbl_speed" text="speed" textFill="WHITE" />
-                  <Label fx:id="lbl_cores" text="cpu_cores" textFill="WHITE" />
-                  <Label fx:id="lbl_threads" text="threads" textFill="WHITE" />
-                  <Label fx:id="lbl_id" text="cpu_id" textFill="WHITE" />
-                  <Label fx:id="lbl_usage" text="usage" textFill="WHITE" />
-                  <Label fx:id="lbl_temp" text="temp" textFill="WHITE" />
-                  <Label fx:id="lbl_voltage" text="voltage" textFill="WHITE" />
-                  <Label fx:id="lbl_fanspeed" text="fan_speed" textFill="WHITE" />
+                  <Label fx:id="lbl_speed" text="speed" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_cores" text="cpu_cores" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_threads" text="threads" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_id" text="cpu_id" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_usage" text="usage" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_temp" text="temp" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_voltage" text="voltage" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_fanspeed" text="fan_speed" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="100.0" prefHeight="250.0" prefWidth="155.0" spacing="15.0">
+            <VBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="100.0" maxHeight="273.0" maxWidth="155.0" prefHeight="273.0" prefWidth="155.0" spacing="15.0">
                <children>
                   <Label text="Processzor család:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Processzor alapsebesség:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Processzor magok:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Processzor szálak:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Processzor ID:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Processzor kihasználtság:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Processzor hőmérséklet:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Processzor feszültség:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label text="Ventilátor sebesség:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                </children>
