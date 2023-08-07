@@ -1,6 +1,5 @@
-System Monitoring Applicaton by SilverSoftware
-
-GitHub: https://github.com/SilverPc98/System_Monitor
+# System Monitoring Applicaton
+(```I created this project to practice Java.```)
 
 Dependencies: 	OSHI(Operating System & Hardware Information) 
 				GitHub: https://github.com/oshi/oshi
@@ -40,5 +39,5 @@ Bar Buttons:
 	Exit:
 						-Application Exit
             
-Design by SilverSoftware
-					
+
+
